@@ -3,7 +3,7 @@
 	//start or resume an existing session
 	session_start();  
 
-	include '../../database.inc.php'; 
+	include '../../../database.inc.php'; 
 
 	$conn = getDatabaseConnection(); 
 
@@ -15,7 +15,7 @@
     	$password = sha1($_POST['password']);
 
 	    $sql = "SELECT *  
-	            FROM oe_admin 
+	            FROM fp_admin 
 	            WHERE username = :username 
 	            AND password = :password";
 	             

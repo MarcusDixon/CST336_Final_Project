@@ -37,11 +37,11 @@
 			
 	<footer>
 		<hr>
-		<p><a href="../index.html">Home</a></p>  
+		<p><a href="../../index.html">Home</a></p>  
 		Disclaimer: The information included in the page might not be accurate. It was developed as part of the CST336 class.
 		<br />
 		&copy; Dixon, 2015
 		<br />
-		<img src="../img/csumb-logo.png" alt="CSUMB Logo"  />
+		<img src="../../img/csumb-logo.png" alt="CSUMB Logo"  />
 	</footer>
 </html>
