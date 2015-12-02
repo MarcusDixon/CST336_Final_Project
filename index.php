@@ -48,6 +48,8 @@
 		<div style="float:left">
 			<iframe src="includes/getGameInfo.php" name="getGameIframe" width="250" height="300" frameborder="0"/></iframe>
 		</div>
+		
+		<p><a href="log/login.php">Admin Login</a></p> 
 	</body>
     <footer style="clear:left">
 		<hr>
