@@ -3,22 +3,21 @@
 	//admin submitted form to add product
 	if (isset($_GET['addForm']))
 	{      
-	  include '../../database.inc.php';
+	  include '../includes/database.inc.php';
 	
-	  $sql = "INSERT INTO oe_product ( productName, productDescription, price, categoryId, healthyChoice) 
-	          VALUES ( :productName, :productDescription, :price, :categoryId, :healthyChoice)";
+	  $sql = "INSERT INTO fp_game ( gameName, gameDescription,  developerId, platform, releaseDate, genreId, trailerLink, gameWiki)
+	          VALUES ( :gameName, :gameDescription,  :developerId, :platform, :releaseDate, genreId, :trailerLink, :gameWiki)";
 	          
 	  $namedParameters = array();
-	  $namedParameters[':productName'] = $_GET['productName'];
-	  $namedParameters[':productDescription'] = $_GET['productDescription'];
-	  $namedParameters[':price'] = $_GET['price'];
-	  $namedParameters[':categoryId'] = $_GET['categoryId'];
-	  $namedParameters[':healthyChoice'] = 0;
-	  
-	  if(isset($_GET['healthyChoice']))
-	  {
-	  	$namedParameters[':healthyChoice'] = 1;
-	  }
+	  $namedParameters[':gameName'] 		= $_GET['gameName'];
+	  $namedParameters[':gameDescription'] 	= $_GET['gameDescription'];
+	  $namedParameters[':developerId'] 		= $_GET['developerId'];
+	  $namedParameters[':platform'] 		= $_GET['platform'];
+	  $namedParameters[':releaseDate'] 		= $_GET['releaseDate'];
+	  $namedParameters[':genreId']		 	= $_GET['genreId'];
+	  $namedParameters[':trailerLink'] 		= $_GET['trailerLink'];
+	  $namedParameters[':gameWiki'] 		= $_GET['gameWiki'];
+
 	
 	  $conn = getDatabaseConnection();    
 	  $statement = $conn->prepare($sql);
@@ -28,7 +27,7 @@
 	}
 	if(isset($_GET['goBack']))
 	{
-		header("Location: products.php");	
+		header("Location: games.php");	
 	}
 ?>
 
@@ -46,7 +45,7 @@
 	  	<meta name="description" content="">
 	  	<meta name="author" content="dixo4437">
 	  
-	  	<link href="css/styles.css" rel="stylesheet" />
+	  	<link href="../css/style.css" rel="stylesheet" />
 	
 	  	<meta name="viewport" content="width=device-width; initial-scale=1.0">
 	
@@ -62,38 +61,53 @@
 	
 	    <div>
 	    	<form>
-	        	Product Name:
-	        	<input type="text" name="productName" />
-	        	<br />
-	          	Description:
-	          	<textarea rows="4" cols="20" name="productDescription"></textarea>
-	          	<br />
-	          	Price:
-	          	<input type="text" name="price" />
-	          	<br />
-	          	Category:
-	          	<select name="categoryId">
+	        	Game Name:
+	        	<input type="text" name="gameName" />
+	        	<br /><br />
+	          	Developer:
+	          	<select name="developerId">
+	          		<!--get from server-->
 	            	<option value="1">Soft Drinks</option>
 	                <option value="2">Snacks </option>
 	                <option value="3">Sandwiches </option>
 	            </select>
-	            <br />
-	            Healthy Choice:
-	            <input type="checkbox" name="healthyChoice" />
-	            
+	            <br /><br />	        	
+	          	Description:
+	          	<textarea rows="4" cols="20" name="gameDescription"></textarea>
+	          	<br /><br />
+	          	Platform:
+	          	<input type="text" name="platform" />
+	          	<br /><br />
+				Release Date:
+				<input type="date" name="releaseDate" />
+				<br /><br />
+	          	Genre:
+	          	<select name="genreId">
+	          		<!--get from server-->
+	            	<option value="1">Soft Drinks</option>
+	                <option value="2">Snacks </option>
+	                <option value="3">Sandwiches </option>
+	            </select>
+	            <br /><br />				
+	          	Trailer Link:
+	          	<input type="text" name="trailerLink" />
+	          	<br /><br />
+	          	Wiki Page:
+	          	<input type="text" name="gameWiki" />
+	          	<br /><br />	            
 	          	<br />          
-	          	<input type="submit" value="Add Product" name="addForm" />
+	          	<input type="submit" value="Add Game" name="addForm" />
 	          	<input type="submit" value="Return" name="goBack" />  
 	    	</form>
 		</div>
 	</body>
     <footer style="clear:left">
 		<hr>
-		<p><a href="../../index.html">Home</a></p>  
+		<p><a href="../../../index.html">Home</a></p>  
 		Disclaimer: The information included in the page might not be accurate. It was developed as part of the CST336 class.
 		<br />
 		&copy; Dixon, 2015
 		<br />
-		<img src="../../img/csumb-logo.png" alt="CSUMB Logo"  />
+		<img src="../../../img/csumb-logo.png" alt="CSUMB Logo"  />
 	</footer>
 </html>

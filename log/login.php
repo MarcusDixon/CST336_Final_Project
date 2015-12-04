@@ -12,7 +12,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="dixo4437">
 		  
-		<link href="css/styles.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
 		
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
 		

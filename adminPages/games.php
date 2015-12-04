@@ -14,16 +14,16 @@
 	
 	function displayAllProducts()
 	{
-	    $sql = "SELECT productId, productName 
-	    		FROM oe_product";
+	    $sql = "SELECT gameId, gameName 
+	    		FROM fp_game";
 				
 	    $records = getDataBySQL($sql);
 	    
 	    foreach ($records as $record) 
 	    {
-	        echo $record['productName']; 
-	        echo " <a href='updateProduct.php?productId=".$record['productId']."'> Update </a>";
-	        echo " <a href='deleteProduct.php?productId=".$record['productId']."'> Delete </a>";
+	        echo $record['gameName']; 
+	        echo " <a href='updateGame.php?gameId=".$record['gameId']."'> Update </a>";
+	        echo " <a href='deleteGame.php?gameId=".$record['gameId']."'> Delete </a>";
 	        echo "<br />";
 	    }
 	}
@@ -40,11 +40,11 @@
 	    	Remove this if you use the .htaccess -->
 	  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	  	<title>Products</title>
+	  	<title>Games</title>
 	  	<meta name="description" content="">
 	  	<meta name="author" content="dixo4437">
 	  
-	  	<link href="css/styles.css" rel="stylesheet" />
+	  	<link href="../css/style.css" rel="stylesheet" />
 	
 	  	<meta name="viewport" content="width=device-width; initial-scale=1.0">
 	
@@ -55,7 +55,7 @@
 
 	<body>
 		<header>
-      		<h1>Product Administration</h1>
+      		<h1>Game Administration</h1>
     	</header>
 
 		<strong> Welcome <?=$_SESSION['adminName']?>! </strong>

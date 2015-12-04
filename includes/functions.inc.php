@@ -24,7 +24,7 @@ function startDisplay()
 				echo "Name";
 				echo "</td>";
 				echo "<td id = 'colTitle'>";
-				echo "Price";
+				echo "Release Date";
 				echo "</td>";
 				echo "</tr>";
 
@@ -37,6 +37,7 @@ function startDisplay()
 					echo "</a>";
 					echo "</td>";
 					echo "<td>";
+					echo $record['releaseDate'];
 					echo "</td>";
 					echo "</tr>";
 				}
@@ -46,7 +47,7 @@ function startDisplay()
 
 function displayAllProducts() 
 {
-	$sql = "SELECT gameName, gameId 
+	$sql = "SELECT gameName, gameId, releaseDate 
 	FROM fp_game ORDER BY gameId";
 
 	$records = getDataBySQL($sql);
